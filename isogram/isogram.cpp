@@ -11,7 +11,6 @@ namespace isogram {
 
     bool isDuplicate(char character, map<char, int> isogram_map)
     {
-        character = tolower(character);
         auto itr = isogram_map.find(character);
         if(itr == isogram_map.end())
             return false;
@@ -19,9 +18,9 @@ namespace isogram {
             return true;
     }
 
-    void addCharacter(char character, map<char, int> isogram_map)
+    void addCharacter(char character, map<char, int> * isogram_map)
     {
-        isogram_map[tolower(character)] = 1;
+        (*isogram_map)[character] = 1;
     }
 
     bool is_isogram(string str)
@@ -36,6 +35,8 @@ namespace isogram {
 
             for (auto character : str)
             {
+                character = tolower(character);
+
                 if(!isSpecialCharacter(character))
                 {
                     if(isDuplicate(character, isogram_map))
@@ -43,7 +44,9 @@ namespace isogram {
                         return false;
                     }
                     else
-                        addCharacter(character, isogram_map);
+                    {
+                        addCharacter(character, &isogram_map);
+                    }
                 }
             }
         }
