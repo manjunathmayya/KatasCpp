@@ -11,10 +11,9 @@ namespace leap
             return false;
 
         if(year % 4 == 0)
-            return true;
+            return true;        
         
-        else
-            return false;
+        return false;
     }
 
 }  
