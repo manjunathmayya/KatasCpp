@@ -19,12 +19,7 @@ namespace partitioning_deci_binary_numbers {
             }
         }
 
-        return max_digit;
-
-        // char best = '0';
-        // for (auto& c : n)
-        //     if (c > best) best = c;
-        // return best - '0';     
+        return max_digit;         
     }
    
 }  
